@@ -1,8 +1,27 @@
 module.exports = (sequelize, DataTypes) => {
   const RentalOrder = sequelize.define('RentalOrder', {
-    quotationId: DataTypes.INTEGER,
-    customerId: DataTypes.INTEGER,
-    status: DataTypes.STRING
+    quotationId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+
+    customerId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+
+    totalAmount: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      defaultValue: 0
+    },
+
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'confirmed'
+      // confirmed | ongoing | completed | cancelled
+    }
   });
 
   RentalOrder.associate = (models) => {

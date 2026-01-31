@@ -5,23 +5,29 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     role: DataTypes.STRING, // admin | vendor | customer
     companyName: DataTypes.STRING,
-    gstin: DataTypes.STRING
+    gstin: DataTypes.STRING,
+
+    resetPasswordOtp: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    resetPasswordOtpExpires: {
+      type: DataTypes.DATE,
+      allowNull: true
+    }
   });
 
   User.associate = (models) => {
-    // Vendor → Products
     User.hasMany(models.Product, {
       foreignKey: 'ownerVendorId',
       as: 'products'
     });
 
-    // Customer → Quotations
     User.hasMany(models.Quotation, {
       foreignKey: 'customerId',
       as: 'quotations'
     });
 
-    // Customer → Rental Orders
     User.hasMany(models.RentalOrder, {
       foreignKey: 'customerId',
       as: 'rentalOrders'

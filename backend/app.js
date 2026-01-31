@@ -12,10 +12,20 @@ app.use(morgan('dev'));
 const authRoutes = require('./modules/v1/auth/routes/authRoutes');
 const productRoutes = require('./modules/v1/product/routes/productRoutes');
 const reservationRoutes = require('./modules/v1/reservations/routes/reservationRoutes');
+const quotationRoutes = require('./modules/v1/quotation/routes/quotationRoutes');
+const rentalOrderRoutes = require('./modules/v1/rentalorder/routes/rentalorderRoutes');
+const invoiceRoutes = require('./modules/v1/invoice/routes/invoiceRoutes');
+const paymentRoutes = require('./modules/v1/payment/routes/paymentRoutes');
+const returnRoutes = require('./modules/v1/return/routes/returnRoutes');
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/reservations', reservationRoutes);
+app.use('/api/v1/quotations', quotationRoutes);
+app.use('/api/v1/rental-orders', rentalOrderRoutes);
+app.use('/api/v1/invoices', invoiceRoutes);
+app.use('/api/v1/payments', paymentRoutes);
+app.use('/api/v1/returns', returnRoutes);
 
 // Database connection
 db.sequelize

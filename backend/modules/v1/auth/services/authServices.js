@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User } = require('../../../../database/models');
-
 // Register
 const registerUser = async (payload) => {
   const existingUser = await User.findOne({

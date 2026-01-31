@@ -4,7 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     productId: DataTypes.INTEGER,
     startDate: DataTypes.DATE,
     endDate: DataTypes.DATE,
-    price: DataTypes.DECIMAL
+    price: DataTypes.DECIMAL,
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 1
+    }
   });
 
   QuotationItem.associate = (models) => {
