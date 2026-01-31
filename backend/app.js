@@ -10,10 +10,12 @@ app.use(morgan('dev'));
 
 // Routes
 const authRoutes = require('./modules/v1/auth/routes/authRoutes');
-const productRoutes = require("./modules/v1/product/routes/productRoutes")
+const productRoutes = require('./modules/v1/product/routes/productRoutes');
+const reservationRoutes = require('./modules/v1/reservations/routes/reservationRoutes');
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/products', productRoutes);
+app.use('/api/v1/reservations', reservationRoutes);
 
 // Database connection
 db.sequelize
