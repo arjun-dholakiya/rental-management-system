@@ -4,7 +4,10 @@ const app = express();
 const morgan = require('morgan');
 const db = require('./database/models');
 
+const cors = require('cors');
+
 // Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
