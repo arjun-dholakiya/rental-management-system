@@ -11,11 +11,12 @@ import Invoices from '../pages/customer/Invoices';
 import Payments from '../pages/customer/Payments';
 import ReturnPage from '../pages/customer/Return';
 import Availability from '../pages/customer/Availability';
-
+import Home from '../pages/Hero';
 
 export default function AppRoutes() {
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
